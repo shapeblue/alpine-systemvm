@@ -50,7 +50,7 @@ VMXFILE
 }
 
 DISK_NAME=alpine-virthardened-$(date +%Y-%m-%d).qcow2
-sudo ./alpine-make-vm-image \
+time sudo ./alpine-make-vm-image \
         --image-format qcow2 \
         --image-size 2G \
         --repositories-file example/repositories \

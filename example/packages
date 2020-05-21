@@ -5,6 +5,7 @@ bash
 bind-tools
 bzip2
 ca-certificates
+cdrkit
 chrony
 cifs-utils
 conntrack-tools
@@ -51,7 +52,6 @@ qemu-guest-agent
 radvd
 rsync
 rsyslog
-samba-common
 sed
 sharutils
 socat

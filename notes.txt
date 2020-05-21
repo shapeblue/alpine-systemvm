@@ -14,6 +14,7 @@ misc:
 vhd-util?
 
 grub-legacy for xenserver pv booting?
+samba-common (remove, no usage found)
 
 tmux
 htop
@@ -33,7 +34,6 @@ iputils-arping **could-require rework
 httping
 dnsutils (bind-tools alternative)
 uuid
-acpid
 ssl-cert
 dnsmasq (dhcp_release)
 nfs-common (alt: nfs-utils)

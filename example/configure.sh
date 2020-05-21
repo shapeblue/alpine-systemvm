@@ -8,14 +8,15 @@ step() {
 
 
 step 'Set up timezone'
-setup-timezone -z Europe/Prague
+setup-timezone -z UTC
 
 step 'Set up networking'
-cat > /etc/network/interfaces <<-EOF
-	auto lo
-	iface lo inet loopback
-	auto eth0
-	iface eth0 inet dhcp
+cat > /etc/network/interfaces << EOF
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet dhcp
 EOF
 ln -s networking /etc/init.d/net.lo
 ln -s networking /etc/init.d/net.eth0
