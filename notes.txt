@@ -1,0 +1,44 @@
+download to create ISO from: http://dl-cdn.alpinelinux.org/alpine/v3.12/community/x86_64/
+size check:
+apk info | xargs -n1 -I{} apk info -s {} | xargs -n4 | awk '{print $4,$1}' | sort -rn
+
+must be separate:
+openjdk11-jre-headless
+
+explore:
+apache2?
+java-cacerts
+java-common
+
+misc:
+vhd-util?
+
+grub-legacy for xenserver pv booting?
+
+tmux
+htop
+tcpdump
+iftop
+diffutils
+telnet
+ftp
+traceroute
+
+arping - conflict :(
+
+not found:
+netbase
+inetutils-ping
+iputils-arping **could-require rework
+httping
+dnsutils (bind-tools alternative)
+uuid
+acpid
+ssl-cert
+dnsmasq (dhcp_release)
+nfs-common (alt: nfs-utils)
+iptables-persistent
+ssl-dev
+libapr1-dev
+python-flask (baremetal?)
+

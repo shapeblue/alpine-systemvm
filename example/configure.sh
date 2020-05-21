@@ -12,7 +12,9 @@ setup-timezone -z Europe/Prague
 
 step 'Set up networking'
 cat > /etc/network/interfaces <<-EOF
+	auto lo
 	iface lo inet loopback
+	auto eth0
 	iface eth0 inet dhcp
 EOF
 ln -s networking /etc/init.d/net.lo
@@ -25,10 +27,16 @@ sed -Ei \
 	-e 's/^[# ](unicode)=.*/\1=YES/' \
 	/etc/rc.conf
 
+step 'Enable root SSH'
+echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
+echo 'UseDNS no' >> /etc/ssh/sshd_config
+echo 'root:password' | chpasswd
+
 step 'Enable services'
 rc-update add acpid default
 rc-update add chronyd default
 rc-update add crond default
+rc-update add sshd default
 rc-update add net.eth0 default
 rc-update add net.lo boot
 rc-update add termencoding boot
